@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -8,17 +10,17 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
-import './index.css';
+import './css/index.css';
 
 const store = createStore(
-  reducers, // todos los reducers
-  {}, // estado inicial
-  applyMiddleware(reduxThunk)
+    reducers, // todos los reducers
+    {}, // estado inicial
+    applyMiddleware(reduxThunk)
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
