@@ -1,11 +1,23 @@
+/** @format */
+
 import axios from 'axios';
 
+import { TRAER_USUARIOS, CARGANDO, ERROR } from '../types/usuariosTypes';
+
 export const traerTodos = () => async (dispatch) => {
-  const usuarios = await axios.get(
-    'https://jsonplaceholder.typicode.com/users'
-  );
-  dispatch({
-    type: 'traer_usuarios',
-    payload: usuarios.data,
-  });
+    dispatch({
+        type: CARGANDO,
+    });
+    try {
+        const usuarios = await axios.get('https://jsonplaceholder.typicode.com/users');
+        dispatch({
+            type: TRAER_USUARIOS,
+            payload: usuarios.data,
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: error.message,
+        });
+    }
 };
