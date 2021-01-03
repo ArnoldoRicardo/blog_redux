@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import * as usuariosActions from '../../actions/usuariosActions';
 import * as publicacionActions from '../../actions/publicacionActions';
 
+const { traerTodos: usuariosTraerTodos } = usuariosActions;
+const { traerTodos: publicacionTraerTodos } = publicacionActions;
+
 class Publicaciones extends Component {
     constructor() {
         super();
@@ -15,7 +18,8 @@ class Publicaciones extends Component {
     }
     componentDidMount() {
         if (!this.props.usuarioReducer.usuarios.length) {
-            this.props.traerTodos();
+            console.log('traer');
+            this.props.usuariosTraerTodos();
         }
         // else {
         //     const usuario = this.props.usuarios.filter(
@@ -46,8 +50,8 @@ const mapStateToProps = ({ usuarioReducer, publicacionReducer }) => {
 };
 
 const mapDispatchToProps = {
-    ...usuariosActions,
-    ...publicacionActions,
+    usuariosTraerTodos,
+    publicacionTraerTodos,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Publicaciones);
