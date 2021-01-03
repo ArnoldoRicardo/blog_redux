@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 const usuarioReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case TRAER_USUARIOS:
-            return { ...state, usuarios: action.payload, cargando: false };
+            return { ...state, usuarios: action.payload, cargando: false, error: '' };
         case CARGANDO:
             return { ...state, cargando: true };
         case ERROR:

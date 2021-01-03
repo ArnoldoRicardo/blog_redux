@@ -21,3 +21,11 @@ export const traerTodos = () => async (dispatch) => {
         });
     }
 };
+
+export const traerPorUsuario = (key) => async (dispatch) => {
+    const publicaciones = await axios.get(`http://localhost:3001/posts?usuario=${key}`);
+    dispatch({
+        type: TRAER_PUBLICACION,
+        payload: publicaciones.data,
+    });
+};

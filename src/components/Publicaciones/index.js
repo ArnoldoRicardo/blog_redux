@@ -7,7 +7,7 @@ import * as usuariosActions from '../../actions/usuariosActions';
 import * as publicacionActions from '../../actions/publicacionActions';
 
 const { traerTodos: usuariosTraerTodos } = usuariosActions;
-const { traerTodos: publicacionTraerTodos } = publicacionActions;
+const { traerPorUsuario: publicacionTraerPorUsuario } = publicacionActions;
 
 class Publicaciones extends Component {
     constructor() {
@@ -16,20 +16,11 @@ class Publicaciones extends Component {
             usuario: null,
         };
     }
-    componentDidMount() {
+    async componentDidMount() {
         if (!this.props.usuarioReducer.usuarios.length) {
-            console.log('traer');
-            this.props.usuariosTraerTodos();
+            await this.props.usuariosTraerTodos();
         }
-        // else {
-        //     const usuario = this.props.usuarios.filter(
-        //         (usuario) => usuario.id == this.props.match.params.key
-        //     );
-
-        //     debugger;
-
-        //     this.setState({ usuario });
-        // }
+        this.props.publicacionTraerPorUsuario(this.props.match.params.key);
     }
 
     render() {
@@ -51,7 +42,7 @@ const mapStateToProps = ({ usuarioReducer, publicacionReducer }) => {
 
 const mapDispatchToProps = {
     usuariosTraerTodos,
-    publicacionTraerTodos,
+    publicacionTraerPorUsuario,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Publicaciones);
