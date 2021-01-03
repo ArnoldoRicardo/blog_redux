@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Tabla(props) {
     const ponerFilas = () =>
@@ -10,6 +11,9 @@ function Tabla(props) {
                 <td>{usuario.name}</td>
                 <td>{usuario.email}</td>
                 <td>{usuario.website}</td>
+                <td>
+                    <Link to={`/publicaciones/${usuario.id}`}>{usuario.id}</Link>
+                </td>
             </tr>
         ));
 
@@ -20,6 +24,7 @@ function Tabla(props) {
                     <th>Nombre</th>
                     <th>Correo</th>
                     <th>Enalce</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>{ponerFilas()}</tbody>
