@@ -1,25 +1,25 @@
 {
     "users": [
         {
-            "id": 1,
+            "id": 0,
             "name": "Juan",
             "email": "hola@juan.com",
             "website": "juan.com"
         },
         {
-            "id": 2,
+            "id": 1,
             "name": "pedro",
             "email": "hola@pedro.com",
             "website": "pedro.com"
         },
         {
-            "id": 3,
+            "id": 2,
             "name": "yolanda",
             "email": "hola@yolanda.com",
             "website": "yolanda.com"
         },
         {
-            "id": 4,
+            "id": 3,
             "name": "sol",
             "email": "hola@sol.com",
             "website": "sol.com"
@@ -28,7 +28,7 @@
     "posts": [
         {
             "usuario": 1,
-            "id": 1,
+            "id": 0,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
@@ -40,43 +40,43 @@
         },
         {
             "usuario": 1,
-            "id": 1,
+            "id": 2,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
             "usuario": 1,
-            "id": 1,
+            "id": 3,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
             "usuario": 1,
-            "id": 1,
+            "id": 4,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
             "usuario": 1,
-            "id": 1,
+            "id": 5,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
             "usuario": 2,
-            "id": 1,
+            "id": 6,
             "title": "los poemoas de pedro",
             "body": "banderita banderita banderita tricolor"
         },
         {
             "usuario": 2,
-            "id": 1,
+            "id": 7,
             "title": "los poemoas de pedro",
             "body": "banderita banderita banderita tricolor"
         },
         {
             "usuario": 2,
-            "id": 1,
+            "id": 8,
             "title": "los poemoas de pedro",
             "body": "banderita banderita banderita tricolor"
         }
