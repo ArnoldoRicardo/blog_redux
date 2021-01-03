@@ -1,0 +1,66 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Juan",
+            "email": "hola@juan.com",
+            "website": "juan.com"
+        },
+        {
+            "id": 2,
+            "name": "pedro",
+            "email": "hola@pedro.com",
+            "website": "pedro.com"
+        },
+        {
+            "id": 3,
+            "name": "yolanda",
+            "email": "hola@yolanda.com",
+            "website": "yolanda.com"
+        },
+        {
+            "id": 4,
+            "name": "sol",
+            "email": "hola@sol.com",
+            "website": "sol.com"
+        }
+    ],
+    "posts": [
+        {
+            "usuario": 1,
+            "id": 1,
+            "title": "los poemoas de juan",
+            "body": "banderita banderita banderita tricolor"
+        },
+        {
+            "usuario": 1,
+            "id": 1,
+            "title": "los poemoas de juan",
+            "body": "banderita banderita banderita tricolor"
+        },
+        {
+            "usuario": 1,
+            "id": 1,
+            "title": "los poemoas de juan",
+            "body": "banderita banderita banderita tricolor"
+        },
+        {
+            "usuario": 1,
+            "id": 1,
+            "title": "los poemoas de juan",
+            "body": "banderita banderita banderita tricolor"
+        },
+        {
+            "usuario": 1,
+            "id": 1,
+            "title": "los poemoas de juan",
+            "body": "banderita banderita banderita tricolor"
+        },
+        {
+            "usuario": 1,
+            "id": 1,
+            "title": "los poemoas de juan",
+            "body": "banderita banderita banderita tricolor"
+        }
+    ]
+}
