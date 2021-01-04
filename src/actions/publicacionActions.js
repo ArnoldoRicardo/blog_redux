@@ -2,19 +2,24 @@
 
 import axios from 'axios';
 
-import { TRAER_PUBLICACION, CARGANDO, ERROR } from '../types/publicacionTypes';
+import { TRAER_POR_USUARIO, CARGANDO, ERROR } from '../types/publicacionTypes';
 
-export const traerTodos = () => async (dispatch) => {
+export const traerPorUsuario = (key) => async (dispatch, getState) => {
+  const { publicaciones } = getState().publicacionReducer;
+
   dispatch({
     type: CARGANDO,
   });
+
   try {
-    // const publicaciones = await axios.get('http://localhost:3001/posts');
-    const publicaciones = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    // const response = await axios.get(`http://localhost:3001/posts?usuario=${key}`);
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${key}`);
+
+    const publicacionesActualizadas = [...publicaciones, response.data];
 
     dispatch({
-      type: TRAER_PUBLICACION,
-      payload: publicaciones.data,
+      type: TRAER_POR_USUARIO,
+      payload: publicacionesActualizadas,
     });
   } catch (error) {
     dispatch({
@@ -22,15 +27,4 @@ export const traerTodos = () => async (dispatch) => {
       payload: 'Algo salio mal intente mas tarde',
     });
   }
-};
-
-export const traerPorUsuario = (key) => async (dispatch) => {
-  //   const publicaciones = await axios.get(
-  //     `http://localhost:3001/posts?usuario=${key}`
-  //   );
-  const publicaciones = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${key}`);
-  dispatch({
-    type: TRAER_PUBLICACION,
-    payload: publicaciones.data,
-  });
 };

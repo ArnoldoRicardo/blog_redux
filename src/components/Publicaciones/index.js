@@ -24,7 +24,7 @@ class Publicaciones extends Component {
   }
 
   render() {
-    console.log(this.props.publicacionReducer.publicaciones);
+    console.log(this.props);
     return (
       <div>
         <h1>Publicaciones de </h1>
