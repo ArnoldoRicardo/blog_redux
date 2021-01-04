@@ -13,7 +13,7 @@ function Tabla(props) {
         <td>{usuario.website}</td>
         <td>
           <Link to={`/publicaciones/${usuario.id}`}>
-            <div class="eye-solid icon"></div>
+            <div className="eye-solid icon"></div>
           </Link>
         </td>
       </tr>
