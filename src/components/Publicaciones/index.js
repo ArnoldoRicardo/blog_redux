@@ -62,6 +62,7 @@ class Publicaciones extends Component {
 
     ponerPublicaciones = () => {
         const {
+            usuarioReducer,
             publicacionReducer,
             publicacionReducer: { publicaciones },
             match: {
@@ -69,7 +70,7 @@ class Publicaciones extends Component {
             },
         } = this.props;
 
-        if (publicacionReducer.error) {
+        if (publicacionReducer.error || usuarioReducer.error) {
             return <Fatal mesaje={publicacionReducer.error} />;
         }
 
@@ -78,7 +79,7 @@ class Publicaciones extends Component {
         }
 
         return publicaciones[key].map((publicacion) => (
-            <div className="pub_titulo" key={publicacion.id}>
+            <div className="pub_titulo" key={publicacion.id} onClick={() => alert(publicacion.id)}>
                 <h2>{publicacion.title}</h2>
                 <p>{publicacion.body}</p>
             </div>
