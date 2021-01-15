@@ -27,55 +27,55 @@
     ],
     "posts": [
         {
-            "usuario": 1,
+            "userId": 1,
             "id": 0,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 1,
+            "userId": 1,
             "id": 1,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 1,
+            "userId": 1,
             "id": 2,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 1,
+            "userId": 1,
             "id": 3,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 1,
+            "userId": 1,
             "id": 4,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 1,
+            "userId": 1,
             "id": 5,
             "title": "los poemoas de juan",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 2,
+            "userId": 2,
             "id": 6,
             "title": "los poemoas de pedro",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 2,
+            "userId": 2,
             "id": 7,
             "title": "los poemoas de pedro",
             "body": "banderita banderita banderita tricolor"
         },
         {
-            "usuario": 2,
+            "userId": 2,
             "id": 8,
             "title": "los poemoas de pedro",
             "body": "banderita banderita banderita tricolor"
