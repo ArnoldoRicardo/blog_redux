@@ -15,7 +15,7 @@ export const traerPorUsuario = (key) => async (dispatch, getState) => {
     // const response = await axios.get(`http://localhost:3001/posts?usuario=${key}`);
     const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${key}`);
 
-    const publicacionesActualizadas = [...publicaciones, response.data];
+    const publicacionesActualizadas = { ...publicaciones, [key]: response.data };
 
     dispatch({
       type: TRAER_POR_USUARIO,
