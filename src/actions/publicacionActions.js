@@ -2,10 +2,10 @@
 
 import axios from 'axios';
 
-import { TRAER_POR_USUARIO, CARGANDO, ERROR } from '../types/publicacionTypes';
+import { UPDATE, CARGANDO, ERROR } from '../types/publicacionTypes';
 
 export const traerPorUsuario = (key) => async (dispatch, getState) => {
-    const { posts } = getState().publicacionReducer;
+    const { publicaciones } = getState().publicacionReducer;
 
     dispatch({
         type: CARGANDO,
@@ -21,10 +21,10 @@ export const traerPorUsuario = (key) => async (dispatch, getState) => {
             abierto: false,
         }));
 
-        const newPosts = { ...posts, [key]: PostsById };
+        const newPosts = { ...publicaciones, [key]: PostsById };
 
         dispatch({
-            type: TRAER_POR_USUARIO,
+            type: UPDATE,
             payload: newPosts,
         });
     } catch (error) {
@@ -33,4 +33,21 @@ export const traerPorUsuario = (key) => async (dispatch, getState) => {
             payload: 'Informacion de publicaciones no disponible.',
         });
     }
+};
+
+export const openClose = (user_id, post_id) => (dispatch, getState) => {
+    const { publicaciones } = getState().publicacionReducer;
+
+    const new_posts = { ...publicaciones };
+    new_posts[user_id] = publicaciones[user_id].map((post) => {
+        if (post.id === post_id) {
+            return { ...post, abierto: !post.abierto };
+        }
+        return post;
+    });
+
+    dispatch({
+        type: UPDATE,
+        payload: new_posts,
+    });
 };

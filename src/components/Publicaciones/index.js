@@ -9,7 +9,7 @@ import * as usuariosActions from '../../actions/usuariosActions';
 import * as publicacionActions from '../../actions/publicacionActions';
 
 const { traerTodos: usuariosTraerTodos } = usuariosActions;
-const { traerPorUsuario: publicacionTraerPorUsuario } = publicacionActions;
+const { traerPorUsuario: publicacionTraerPorUsuario, openClose } = publicacionActions;
 
 class Publicaciones extends Component {
     constructor() {
@@ -78,16 +78,20 @@ class Publicaciones extends Component {
             return <Spinner />;
         }
 
-        return publicaciones[key].map((publicacion) => (
-            <div className="pub_titulo" key={publicacion.id} onClick={() => alert(publicacion.id)}>
-                <h2>{publicacion.title}</h2>
-                <p>{publicacion.body}</p>
-            </div>
-        ));
+        return this.showInfo(publicaciones[key], key);
     };
 
+    showInfo = (posts, key) =>
+        posts.map((post) => (
+            <div className="pub_titulo" key={post.id} onClick={() => this.props.openClose(key, post.id)}>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+                {post.abierto ? 'abierto' : 'cerrado'}
+            </div>
+        ));
+
     render() {
-        console.log(this.props.publicacionReducer);
+        // console.log(this.props.publicacionReducer);
         return (
             <div>
                 {this.ponerUsuario()}
@@ -107,6 +111,7 @@ const mapStateToProps = ({ usuarioReducer, publicacionReducer }) => {
 const mapDispatchToProps = {
     usuariosTraerTodos,
     publicacionTraerPorUsuario,
+    openClose,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Publicaciones);
