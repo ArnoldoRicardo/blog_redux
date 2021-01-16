@@ -10,37 +10,37 @@ import Fatal from '../General/Fatal';
 import Tabla from './Tabla';
 
 class Usuarios extends Component {
-  componentDidMount() {
-    if (!this.props.usuarios.length) {
-      this.props.traerTodos();
-    }
-  }
-
-  ponerContenido = () => {
-    if (this.props.cargando) {
-      return <Spinner />;
+    componentDidMount() {
+        if (!this.props.usuarios.length) {
+            this.props.traerTodos();
+        }
     }
 
-    if (this.props.error) {
-      return <Fatal mesaje={this.props.error} />;
+    ponerContenido = () => {
+        if (this.props.cargando) {
+            return <Spinner />;
+        }
+
+        if (this.props.error) {
+            return <Fatal mensaje={this.props.error} />;
+        }
+
+        return <Tabla />;
+    };
+
+    render() {
+        console.log(this.props.usuarios);
+        return (
+            <div>
+                <h1>Usuarios</h1>
+                {this.ponerContenido()}
+            </div>
+        );
     }
-
-    return <Tabla />;
-  };
-
-  render() {
-    console.log(this.props.usuarios)
-    return (
-      <div>
-        <h1>Usuarios</h1>
-        {this.ponerContenido()}
-      </div>
-    );
-  }
 }
 
 const mapStateToProps = (reducers) => {
-  return reducers.usuarioReducer;
+    return reducers.usuarioReducer;
 };
 
 export default connect(mapStateToProps, usuariosActions)(Usuarios);

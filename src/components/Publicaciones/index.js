@@ -4,12 +4,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spinner from '../General/Spinner';
 import Fatal from '../General/Fatal';
+import Comments from './Comments';
 
 import * as usuariosActions from '../../actions/usuariosActions';
 import * as publicacionActions from '../../actions/publicacionActions';
 
 const { traerTodos: usuariosTraerTodos } = usuariosActions;
-const { traerPorUsuario: publicacionTraerPorUsuario, openClose } = publicacionActions;
+const { traerPorUsuario: publicacionTraerPorUsuario, openComments, getComments } = publicacionActions;
 
 class Publicaciones extends Component {
     constructor() {
@@ -44,7 +45,7 @@ class Publicaciones extends Component {
         } = this.props;
 
         if (usuarioReducer.error) {
-            return <Fatal mesaje={usuarioReducer.error} />;
+            return <Fatal mensaje={usuarioReducer.error} />;
         }
 
         if (!usuarioReducer.usuarios.length || usuarioReducer.cargando) {
@@ -71,7 +72,7 @@ class Publicaciones extends Component {
         } = this.props;
 
         if (publicacionReducer.error || usuarioReducer.error) {
-            return <Fatal mesaje={publicacionReducer.error} />;
+            return <Fatal mensaje={publicacionReducer.error} />;
         }
 
         if (!publicaciones.hasOwnProperty(key) || publicacionReducer.cargando) {
@@ -83,12 +84,19 @@ class Publicaciones extends Component {
 
     showInfo = (posts, key) =>
         posts.map((post) => (
-            <div className="pub_titulo" key={post.id} onClick={() => this.props.openClose(key, post.id)}>
+            <div className="pub_titulo" key={post.id} onClick={() => this.showComments(key, post.id, post.comments)}>
                 <h2>{post.title}</h2>
                 <p>{post.body}</p>
-                {post.abierto ? 'abierto' : 'cerrado'}
+                {post.open ? <Comments comments={post.comments} /> : '[ver-comentarios]'}
             </div>
         ));
+
+    showComments = (user_id, post_id, comments) => {
+        this.props.openComments(user_id, post_id);
+        if (!comments.length) {
+            this.props.getComments(user_id, post_id);
+        }
+    };
 
     render() {
         // console.log(this.props.publicacionReducer);
@@ -111,7 +119,8 @@ const mapStateToProps = ({ usuarioReducer, publicacionReducer }) => {
 const mapDispatchToProps = {
     usuariosTraerTodos,
     publicacionTraerPorUsuario,
-    openClose,
+    openComments,
+    getComments,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Publicaciones);
