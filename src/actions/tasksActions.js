@@ -7,10 +7,22 @@ export const getAll = () => async (dispatch) => {
         type: LOADING,
     });
     try {
-        const tasks = await axios.get('https://jsonplaceholder.typicode.com/todos');
+        const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
+
+        const tasks = {};
+        response.data.map(
+            (task) =>
+                (tasks[task.userId] = {
+                    ...tasks[task.userId],
+                    [task.id]: {
+                        ...task,
+                    },
+                })
+        );
+
         dispatch({
             type: GET_ALL,
-            payload: tasks.data,
+            payload: tasks,
         });
     } catch (error) {
         dispatch({
