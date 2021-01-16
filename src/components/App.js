@@ -5,8 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Menu from './Menu';
 import Usuarios from './Usuarios';
 import Publicaciones from './Publicaciones';
-
-const Tareas = () => <div>Tareas</div>;
+import Tasks from './Tasks';
 
 export default function App() {
     return (
@@ -14,8 +13,8 @@ export default function App() {
             <Menu />
             <div className="margen">
                 <Switch>
-                    <Route exact path="/" component={Usuarios} />
-                    <Route exact path="/tareas" component={Tareas} />
+                    <Route exact path="/blog_redux" component={Usuarios} />
+                    <Route exact path="/tareas" component={Tasks} />
                     <Route exact path="/publicaciones/:key" component={Publicaciones} />
                 </Switch>
             </div>
