@@ -70,7 +70,7 @@ class Save extends Component {
                     Guardar
                 </button>
                 {this.showAction()}
-                {this.props.redirect && <Redirect to="/blog_redux/tareas" />}
+                {!Object.keys(this.props.tasks).length && <Redirect to="/blog_redux/tareas" />}
             </div>
         );
     }

@@ -16,7 +16,7 @@ const tasksReducer = (state = INITIAL_STATE, action) => {
         case ERROR:
             return { ...state, error: action.payload, loading: false };
         case ADD_TASK:
-            return { ...state, tareas: {}, loading: false, error: '', redirect: true };
+            return { ...state, tasks: {}, loading: false, error: '' };
         default:
             return state;
     }

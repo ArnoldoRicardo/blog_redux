@@ -39,7 +39,7 @@ export const add = (task) => async (dispatch) => {
 
     try {
         const response = await axios.post('https://jsonplaceholder.typicode.com/todos', task);
-
+        console.log(response.data);
         dispatch({ type: ADD_TASK });
     } catch (error) {
         dispatch({
