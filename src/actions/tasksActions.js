@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_ALL, LOADING, ERROR } from '../types/TasksTypes';
+import { GET_ALL, LOADING, ERROR, ADD_TASK } from '../types/TasksTypes';
 
 export const getAll = () => async (dispatch) => {
     dispatch({
@@ -28,6 +28,23 @@ export const getAll = () => async (dispatch) => {
         dispatch({
             type: ERROR,
             payload: 'Informacion de tareas no disponible.',
+        });
+    }
+};
+
+export const add = (task) => async (dispatch) => {
+    dispatch({
+        type: LOADING,
+    });
+
+    try {
+        const response = await axios.post('https://jsonplaceholder.typicode.com/todos', task);
+
+        dispatch({ type: ADD_TASK });
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: 'Intente mas tarde.',
         });
     }
 };

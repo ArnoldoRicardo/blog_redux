@@ -12,7 +12,7 @@ function Tabla(props) {
                 <td>{usuario.email}</td>
                 <td>{usuario.website}</td>
                 <td>
-                    <Link to={`/publicaciones/${usuario.id}`}>
+                    <Link to={`/blog_redux/publicaciones/${usuario.id}`}>
                         <div className="eye-solid icon"></div>
                     </Link>
                 </td>

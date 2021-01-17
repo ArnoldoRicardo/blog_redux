@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <nav id="menu">
             <Link to="/blog_redux">Usuarios</Link>
-            <Link to="/tareas">Tareas</Link>
+            <Link to="/blog_redux/tareas">Tareas</Link>
         </nav>
     );
 }

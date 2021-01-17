@@ -1,9 +1,10 @@
-import { GET_ALL, LOADING, ERROR } from '../types/TasksTypes';
+import { GET_ALL, LOADING, ERROR, ADD_TASK } from '../types/TasksTypes';
 
 const INITIAL_STATE = {
     tasks: {},
     loading: false,
     error: '',
+    redirect: false,
 };
 
 const tasksReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +15,8 @@ const tasksReducer = (state = INITIAL_STATE, action) => {
             return { ...state, loading: true };
         case ERROR:
             return { ...state, error: action.payload, loading: false };
+        case ADD_TASK:
+            return { ...state, tareas: {}, loading: false, error: '', redirect: true };
         default:
             return state;
     }
