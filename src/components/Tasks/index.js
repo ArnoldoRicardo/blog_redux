@@ -33,12 +33,16 @@ class Tasks extends Component {
     };
 
     showTasks = (user_id) => {
-        const { tasks } = this.props;
+        const { tasks, checkedTask } = this.props;
         const userTasks = { ...tasks[user_id] };
 
         return Object.keys(userTasks).map((task_id) => (
             <div key={task_id}>
-                <input type="checkbox" defaultChecked={userTasks[task_id].completed} />
+                <input
+                    type="checkbox"
+                    defaultChecked={userTasks[task_id].completed}
+                    onChange={() => checkedTask(user_id, task_id)}
+                />
                 {userTasks[task_id].title}
                 <button className="m_left">
                     <Link to={`/blog_redux/tareas/guardar/${user_id}/${task_id}`}>Editar</Link>

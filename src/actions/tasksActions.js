@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_ALL, LOADING, ERROR, SAVE } from '../types/TasksTypes';
+import { GET_ALL, LOADING, ERROR, SAVE, UPDATE } from '../types/TasksTypes';
 
 export const getAll = () => async (dispatch) => {
     dispatch({
@@ -64,4 +64,22 @@ export const update = (task) => async (dispatch) => {
             payload: 'Intente mas tarde.',
         });
     }
+};
+
+export const checkedTask = (user_id, task_id) => (dispacth, getState) => {
+    const { tasks } = getState().tasksReducer;
+    const task = tasks[user_id][task_id];
+
+    const new_tasks = {
+        ...tasks,
+    };
+    new_tasks[user_id][task_id] = {
+        ...task,
+        completed: !task.completed,
+    };
+
+    dispacth({
+        type: UPDATE,
+        payload: new_tasks,
+    });
 };

@@ -1,4 +1,4 @@
-import { GET_ALL, LOADING, ERROR, SAVE } from '../types/TasksTypes';
+import { GET_ALL, LOADING, ERROR, SAVE, UPDATE } from '../types/TasksTypes';
 
 const INITIAL_STATE = {
     tasks: {},
@@ -17,6 +17,8 @@ const tasksReducer = (state = INITIAL_STATE, action) => {
             return { ...state, error: action.payload, loading: false };
         case SAVE:
             return { ...state, tasks: {}, loading: false, error: '' };
+        case UPDATE:
+            return { ...state, tasks: action.payload };
         default:
             return state;
     }
