@@ -17,6 +17,7 @@ export default function App() {
                     <Route exact path="/blog_redux" component={Usuarios} />
                     <Route exact path="/blog_redux/tareas" component={Tasks} />
                     <Route exact path="/blog_redux/tareas/guardar" component={TasksSave} />
+                    <Route exact path="/blog_redux/tareas/guardar/:user_id/:task_id" component={TasksSave} />
                     <Route exact path="/blog_redux/publicaciones/:key" component={Publicaciones} />
                 </Switch>
             </div>

@@ -9,10 +9,28 @@ import * as tasksActions from '../../actions/tasksActions';
 class Save extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             id: '',
             title: '',
+            task: '',
         };
+    }
+
+    componentDidMount() {
+        const {
+            match: {
+                params: { user_id, task_id },
+            },
+            tasks,
+        } = this.props;
+
+        if (user_id && task_id && Object.keys(tasks).length) {
+            const task = tasks[user_id][task_id];
+            this.setState({ id: task.userId, task: task, title: task.title });
+        } else {
+            this.props.history.push('/blog_redux/tareas');
+        }
     }
 
     handleInputs = (e) => {
@@ -21,15 +39,25 @@ class Save extends Component {
     };
 
     handleSave = () => {
-        const { id, title } = this.state;
+        const { id, title, task } = this.state;
 
-        const task = {
+        const new_task = {
             userId: id,
             title,
             completed: false,
         };
 
-        this.props.add(task);
+        if (task) {
+            const update_task = {
+                ...new_task,
+                completed: task.completed,
+                id: task.id,
+            };
+
+            this.props.update(update_task);
+        } else {
+            this.props.add(new_task);
+        }
     };
 
     disabled = () => {

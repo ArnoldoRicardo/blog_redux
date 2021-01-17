@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_ALL, LOADING, ERROR, ADD_TASK } from '../types/TasksTypes';
+import { GET_ALL, LOADING, ERROR, SAVE } from '../types/TasksTypes';
 
 export const getAll = () => async (dispatch) => {
     dispatch({
@@ -40,7 +40,24 @@ export const add = (task) => async (dispatch) => {
     try {
         const response = await axios.post('https://jsonplaceholder.typicode.com/todos', task);
         console.log(response.data);
-        dispatch({ type: ADD_TASK });
+        dispatch({ type: SAVE });
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: 'Intente mas tarde.',
+        });
+    }
+};
+
+export const update = (task) => async (dispatch) => {
+    dispatch({
+        type: LOADING,
+    });
+
+    try {
+        const response = await axios.put(`https://jsonplaceholder.typicode.com/todos/${task.id}`, task);
+        console.log(response.data);
+        dispatch({ type: SAVE });
     } catch (error) {
         dispatch({
             type: ERROR,

@@ -40,6 +40,10 @@ class Tasks extends Component {
             <div key={task_id}>
                 <input type="checkbox" defaultChecked={userTasks[task_id].completed} />
                 {userTasks[task_id].title}
+                <button className="m_left">
+                    <Link to={`/blog_redux/tareas/guardar/${user_id}/${task_id}`}>Editar</Link>
+                </button>
+                <button className="m_left">Elimiar</button>
             </div>
         ));
     };
