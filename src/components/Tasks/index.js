@@ -12,6 +12,11 @@ class Tasks extends Component {
             this.props.getAll();
         }
     }
+    componentDidUpdate() {
+        if (!Object.keys(this.props.tasks).length) {
+            this.props.getAll();
+        }
+    }
 
     showContent = () => {
         const { tasks, loading, error } = this.props;
@@ -33,7 +38,7 @@ class Tasks extends Component {
     };
 
     showTasks = (user_id) => {
-        const { tasks, checkedTask } = this.props;
+        const { tasks, checkedTask, deleteTask } = this.props;
         const userTasks = { ...tasks[user_id] };
 
         return Object.keys(userTasks).map((task_id) => (
@@ -47,12 +52,15 @@ class Tasks extends Component {
                 <button className="m_left">
                     <Link to={`/blog_redux/tareas/guardar/${user_id}/${task_id}`}>Editar</Link>
                 </button>
-                <button className="m_left">Elimiar</button>
+                <button className="m_left" onClick={() => deleteTask(task_id)}>
+                    Elimiar
+                </button>
             </div>
         ));
     };
 
     render() {
+        console.log(this.tasks);
         return (
             <div>
                 <button>

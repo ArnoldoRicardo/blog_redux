@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { GET_ALL, LOADING, ERROR, SAVE, UPDATE } from '../types/TasksTypes';
 
+//get
 export const getAll = () => async (dispatch) => {
     dispatch({
         type: LOADING,
@@ -32,6 +33,7 @@ export const getAll = () => async (dispatch) => {
     }
 };
 
+//post
 export const add = (task) => async (dispatch) => {
     dispatch({
         type: LOADING,
@@ -49,6 +51,7 @@ export const add = (task) => async (dispatch) => {
     }
 };
 
+//update
 export const update = (task) => async (dispatch) => {
     dispatch({
         type: LOADING,
@@ -66,6 +69,7 @@ export const update = (task) => async (dispatch) => {
     }
 };
 
+//update
 export const checkedTask = (user_id, task_id) => (dispacth, getState) => {
     const { tasks } = getState().tasksReducer;
     const task = tasks[user_id][task_id];
@@ -82,4 +86,25 @@ export const checkedTask = (user_id, task_id) => (dispacth, getState) => {
         type: UPDATE,
         payload: new_tasks,
     });
+};
+
+//delete
+export const deleteTask = (task_id) => async (dispatch) => {
+    dispatch({
+        type: LOADING,
+    });
+
+    try {
+        const response = await axios.delete(`https://jsonplaceholder.typicode.com/todos/${task_id}`);
+        console.log(response.data);
+        dispatch({
+            type: GET_ALL,
+            payload: {},
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            payload: '"Servicio no disponible.',
+        });
+    }
 };
