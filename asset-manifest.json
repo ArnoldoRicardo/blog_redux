@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/blog_redux/static/css/main.7591699d.chunk.css",
-    "main.js": "/blog_redux/static/js/main.be067599.chunk.js",
-    "main.js.map": "/blog_redux/static/js/main.be067599.chunk.js.map",
+    "main.css": "/blog_redux/static/css/main.fa1f36cf.chunk.css",
+    "main.js": "/blog_redux/static/js/main.343122fa.chunk.js",
+    "main.js.map": "/blog_redux/static/js/main.343122fa.chunk.js.map",
     "runtime-main.js": "/blog_redux/static/js/runtime-main.3b7f0aa7.js",
     "runtime-main.js.map": "/blog_redux/static/js/runtime-main.3b7f0aa7.js.map",
-    "static/js/2.5de258b1.chunk.js": "/blog_redux/static/js/2.5de258b1.chunk.js",
-    "static/js/2.5de258b1.chunk.js.map": "/blog_redux/static/js/2.5de258b1.chunk.js.map",
+    "static/js/2.f5420f31.chunk.js": "/blog_redux/static/js/2.f5420f31.chunk.js",
+    "static/js/2.f5420f31.chunk.js.map": "/blog_redux/static/js/2.f5420f31.chunk.js.map",
     "index.html": "/blog_redux/index.html",
-    "static/css/main.7591699d.chunk.css.map": "/blog_redux/static/css/main.7591699d.chunk.css.map",
-    "static/js/2.5de258b1.chunk.js.LICENSE.txt": "/blog_redux/static/js/2.5de258b1.chunk.js.LICENSE.txt"
+    "static/css/main.fa1f36cf.chunk.css.map": "/blog_redux/static/css/main.fa1f36cf.chunk.css.map",
+    "static/js/2.f5420f31.chunk.js.LICENSE.txt": "/blog_redux/static/js/2.f5420f31.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3b7f0aa7.js",
-    "static/js/2.5de258b1.chunk.js",
-    "static/css/main.7591699d.chunk.css",
-    "static/js/main.be067599.chunk.js"
+    "static/js/2.f5420f31.chunk.js",
+    "static/css/main.fa1f36cf.chunk.css",
+    "static/js/main.343122fa.chunk.js"
   ]
 }
