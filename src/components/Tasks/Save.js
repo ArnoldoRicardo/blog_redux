@@ -22,14 +22,11 @@ class Save extends Component {
             match: {
                 params: { user_id, task_id },
             },
-            tasks,
         } = this.props;
 
-        if (user_id && task_id && Object.keys(tasks).length) {
-            const task = tasks[user_id][task_id];
+        if (user_id && task_id) {
+            const task = Object.keys(this.props.tasks).length ? this.props.tasks[user_id][task_id] : {};
             this.setState({ id: task.userId, task: task, title: task.title });
-        } else {
-            this.props.history.push('/blog_redux/tareas');
         }
     }
 

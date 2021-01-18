@@ -5,7 +5,6 @@ import Fatal from '../General/Fatal';
 
 const Comments = (props) => {
     if (props.com_error) {
-        console.log(props.com_error);
         return <Fatal mensaje={props.com_error} />;
     }
 

@@ -41,7 +41,7 @@ export const add = (task) => async (dispatch) => {
 
     try {
         const response = await axios.post('https://jsonplaceholder.typicode.com/todos', task);
-        console.log(response.data);
+        console.info(response.data);
         dispatch({ type: SAVE });
     } catch (error) {
         dispatch({
@@ -59,7 +59,7 @@ export const update = (task) => async (dispatch) => {
 
     try {
         const response = await axios.put(`https://jsonplaceholder.typicode.com/todos/${task.id}`, task);
-        console.log(response.data);
+        console.info(response.data);
         dispatch({ type: SAVE });
     } catch (error) {
         dispatch({
@@ -96,7 +96,7 @@ export const deleteTask = (task_id) => async (dispatch) => {
 
     try {
         const response = await axios.delete(`https://jsonplaceholder.typicode.com/todos/${task_id}`);
-        console.log(response.data);
+        console.info(response.data);
         dispatch({
             type: GET_ALL,
             payload: {},
